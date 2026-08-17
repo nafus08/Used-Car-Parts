@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">usedcarparts</string>
+    <string name="splash_buy_sell">بيع وشراء قطع غيار السيارات المستعملة</string>
+    <string name="english">الإنجليزية</string>
+    <string name="arabic">العربية</string>
+
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="i_am_a">أنا:</string>
+    <string name="shopper">متسوق</string>
+    <string name="trader">تاجر</string>
+    <string name="email_or_phone">البريد الإلكتروني أو الهاتف</string>
+    <string name="password">كلمة المرور</string>
+    <string name="forgot_password">هل نسيت كلمة المرور؟</string>
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="dont_have_account">ليس لديك حساب؟ سجل الآن</string>
+
+    <string name="create_account">إنشاء حساب</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="business_name">اسم الشركة</string>
+    <string name="business_license">رقم الرخصة التجارية</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="phone_number">رقم الهاتف</string>
+    <string name="agree_terms">أوافق على الشروط وسياسة الخصوصية</string>
+
+    <string name="search_hint">ابحث عن قطع غيار...</string>
+    <string name="new_listing">إعلان جديد</string>
+    <string name="title">العنوان</string>
+    <string name="category">الفئة</string>
+    <string name="price">السعر</string>
+    <string name="condition">الحالة (جديد/مستعمل)</string>
+    <string name="make_model_year">نوع السيارة / الموديل / السنة</string>
+    <string name="description">الوصف</string>
+    <string name="publish_listing">نشر الإعلان</string>
+    <string name="add_to_cart">أضف إلى السلة</string>
+
+    <string name="nav_home">الرئيسية</string>
+    <string name="nav_search">البحث</string>
+    <string name="nav_sell">بيع</string>
+    <string name="nav_chats">المحادثات</string>
+    <string name="nav_profile">الملف الشخصي</string>
+    <string name="language_change_note">يمكن تغيير اللغة في أي وقت من الملف الشخصي</string>
+    <string name="or_continue_with">أو المتابعة بواسطة -</string>
+    <string name="google">جوجل</string>
+    <string name="phone_otp">رمز الهاتف</string>
+    <string name="featured_listings">الإعلانات المميزة</string>
+    <string name="cat_engine">المحرك</string>
+    <string name="cat_brake">الفرامل</string>
+    <string name="cat_body">الهيكل</string>
+    <string name="cat_elec">الكهرباء</string>
+    <string name="title_en">العنوان (بالانجليزية)</string>
+    <string name="title_ar">العنوان (بالعربية)</string>
+    <string name="quantity">الكمية</string>
+    <string name="en">EN</string>
+    <string name="ar">ع</string>
+    <string name="search_results">نتائج البحث</string>
+    <string name="results_count">%1$d نتيجة</string>
+    <string name="part_details">تفاصيل القطعة</string>
+    <string name="seller">البائع</string>
+    <string name="message">رسالة</string>
+    <string name="checkout">الدفع</string>
+    <string name="delivery_address">عنوان التوصيل</string>
+    <string name="change_address">تغيير العنوان</string>
+    <string name="payment_method">طريقة الدفع</string>
+    <string name="card">بطاقة</string>
+    <string name="mobile_bank">بنك الهاتف</string>
+    <string name="cash_on_delivery">الدفع عند الاستلام</string>
+    <string name="subtotal">المجموع الفرعي</string>
+    <string name="delivery">التوصيل</string>
+    <string name="total">المجموع</string>
+    <string name="pay_securely">ادفع بأمان</string>
+    <string name="payment_successful">تم الدفع بنجاح</string>
+    <string name="order_number">طلب رقم %1$s</string>
+    <string name="track_order">تتبع الطلب</string>
+    <string name="back_to_home">العودة للرئيسية</string>
+    <string name="status">الحالة</string>
+    <string name="confirmed">مؤكد</string>
+</resources>

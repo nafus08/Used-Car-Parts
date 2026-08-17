@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">usedcarparts</string>
+    <string name="splash_buy_sell">Buy &amp; sell used car parts</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic (العربية)</string>
+
+    <string name="sign_in">Sign In</string>
+    <string name="i_am_a">I am a:</string>
+    <string name="shopper">Shopper</string>
+    <string name="trader">Trader</string>
+    <string name="email_or_phone">Email or phone</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="log_in">Log In</string>
+    <string name="dont_have_account">Don\'t have an account? Register</string>
+
+    <string name="create_account">Create Account</string>
+    <string name="full_name">Full name</string>
+    <string name="business_name">Business name</string>
+    <string name="business_license">Business license no.</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone number</string>
+    <string name="agree_terms">I agree to Terms &amp; Privacy Policy</string>
+
+    <string name="search_hint">Search car parts...</string>
+    <string name="new_listing">New Listing</string>
+    <string name="title">Title</string>
+    <string name="category">Category</string>
+    <string name="price">Price</string>
+    <string name="condition">Condition (New/Used)</string>
+    <string name="make_model_year">Car Make / Model / Year</string>
+    <string name="description">Description</string>
+    <string name="publish_listing">Publish Listing</string>
+    <string name="add_to_cart">Add to cart</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_search">Search</string>
+    <string name="nav_sell">Sell</string>
+    <string name="nav_chats">Chats</string>
+    <string name="nav_profile">Profile</string>
+    <string name="language_change_note">Language can be changed anytime in Profile</string>
+    <string name="or_continue_with">or continue with -</string>
+    <string name="google">Google</string>
+    <string name="phone_otp">Phone OTP</string>
+    <string name="featured_listings">Featured Listings</string>
+    <string name="cat_engine">Engine</string>
+    <string name="cat_brake">Brake</string>
+    <string name="cat_body">Body</string>
+    <string name="cat_elec">Elec.</string>
+    <string name="title_en">Title (English)</string>
+    <string name="title_ar">Title (Arabic)</string>
+    <string name="quantity">Quantity</string>
+    <string name="en">EN</string>
+    <string name="ar">ع</string>
+    <string name="search_results">Search Results</string>
+    <string name="results_count">%1$d results</string>
+    <string name="part_details">Part Details</string>
+    <string name="seller">Seller</string>
+    <string name="message">Message</string>
+    <string name="checkout">Checkout</string>
+    <string name="delivery_address">Delivery Address</string>
+    <string name="change_address">Change address</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="card">Card</string>
+    <string name="mobile_bank">Mobile Bank</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="delivery">Delivery</string>
+    <string name="total">Total</string>
+    <string name="pay_securely">Pay Securely</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="order_number">Order #%1$s</string>
+    <string name="track_order">Track Order</string>
+    <string name="back_to_home">Back to Home</string>
+    <string name="status">Status</string>
+    <string name="confirmed">Confirmed</string>
+</resources>
