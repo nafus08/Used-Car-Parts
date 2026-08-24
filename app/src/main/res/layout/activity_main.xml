@@ -41,36 +41,68 @@
         android:id="@+id/searchContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingHorizontal="16dp"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/topBar">
 
-        <EditText
-            android:id="@+id/etSearch"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:hint="@string/search_hint"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:inputType="text"
-            android:importantForAutofill="no"
-            android:textColor="?attr/colorOnSurface"
-            android:textColorHint="?android:attr/textColorSecondary"
-            android:background="@android:drawable/editbox_background"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="@string/search_hint"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:inputType="text"
+                android:importantForAutofill="no"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?android:attr/textColorSecondary"
+                android:background="@android:drawable/editbox_background"/>
 
-        <ImageButton
-            android:id="@+id/btnFilter"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:src="@android:drawable/ic_menu_manage"
-            android:background="?attr/selectableItemBackground"
-            app:tint="?attr/colorOnSurface"
-            android:contentDescription="Filter"/>
+            <ImageButton
+                android:id="@+id/btnFilter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:src="@android:drawable/ic_menu_manage"
+                android:background="?attr/selectableItemBackground"
+                app:tint="?attr/colorOnSurface"
+                android:contentDescription="Filter"/>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginTop="12dp">
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true">
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Make: Any"
+                    style="@style/Widget.MaterialComponents.Chip.Action"/>
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Year: Any"
+                    style="@style/Widget.MaterialComponents.Chip.Action"/>
+                <com.google.android.material.chip.Chip
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Condition: Any"
+                    style="@style/Widget.MaterialComponents.Chip.Action"/>
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
     </LinearLayout>
 
     <HorizontalScrollView
@@ -88,11 +120,14 @@
             android:paddingVertical="8dp">
 
             <LinearLayout
+                android:id="@+id/catEngine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -110,11 +145,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/catBrake"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -132,11 +170,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/catBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -154,11 +195,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/catElec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true">
                 <ImageView
                     android:layout_width="56dp"
                     android:layout_height="56dp"
@@ -175,6 +219,55 @@
                     android:textColor="?attr/colorOnSurface"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/catInterior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@android:drawable/ic_menu_slideshow"
+                    android:background="@android:drawable/btn_default"
+                    android:padding="12dp"
+                    app:tint="?attr/colorPrimary"
+                    android:contentDescription="Interior"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Interior"
+                    android:textSize="12sp"
+                    android:textColor="?attr/colorOnSurface"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/catOther"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:focusable="true">
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@android:drawable/ic_menu_help"
+                    android:background="@android:drawable/btn_default"
+                    android:padding="12dp"
+                    app:tint="?attr/colorPrimary"
+                    android:contentDescription="Other"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Other"
+                    android:textSize="12sp"
+                    android:textColor="?attr/colorOnSurface"/>
+            </LinearLayout>
         </LinearLayout>
     </HorizontalScrollView>
 

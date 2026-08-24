@@ -8,7 +8,10 @@ import com.example.usedcarparts.databinding.ItemListingBinding
 
 class ListingAdapter(
     private var listings: List<Listing>,
-    private val onListingClick: (Listing) -> Unit
+    private val currentUserId: String?,
+    private val onListingClick: (Listing) -> Unit,
+    private val onDeleteClick: ((Listing) -> Unit)? = null,
+    private val onAddToCartClick: ((Listing) -> Unit)? = null
 ) : RecyclerView.Adapter<ListingAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemListingBinding) : RecyclerView.ViewHolder(binding.root)
@@ -24,6 +27,21 @@ class ListingAdapter(
         holder.binding.tvDetails.text = "${listing.carMakeModelYear} · ${listing.condition}"
         holder.binding.tvPrice.text = "$${listing.price}"
         
+        // Show delete button only if current user is the owner
+        if (currentUserId != null && listing.traderFirebaseId == currentUserId) {
+            holder.binding.btnDelete.visibility = android.view.View.VISIBLE
+            holder.binding.btnDelete.setOnClickListener {
+                onDeleteClick?.invoke(listing)
+            }
+            holder.binding.btnAddToCart.visibility = android.view.View.GONE
+        } else {
+            holder.binding.btnDelete.visibility = android.view.View.GONE
+            holder.binding.btnAddToCart.visibility = android.view.View.VISIBLE
+            holder.binding.btnAddToCart.setOnClickListener {
+                onAddToCartClick?.invoke(listing)
+            }
+        }
+
         holder.itemView.setOnClickListener {
             onListingClick(listing)
         }

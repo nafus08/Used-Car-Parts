@@ -22,13 +22,14 @@
             android:layout_height="wrap_content"
             android:src="@android:drawable/ic_menu_revert"
             app:tint="?attr/colorPrimary"
-            android:contentDescription="@string/back_to_home"/>
+            android:contentDescription="Back"/>
 
         <TextView
+            android:id="@+id/tvOtherUserName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/nav_chats"
+            android:text="Seller Name"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="?attr/colorOnSurface"
@@ -36,46 +37,44 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChats"
+        android:id="@+id/rvMessages"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
         app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@id/inputArea"/>
 
     <LinearLayout
-        android:id="@+id/emptyView"
+        android:id="@+id/inputArea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:padding="32dp"
-        android:visibility="gone">
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="?attr/colorSurface"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Type a message..."
+            android:padding="12dp"
+            android:background="@android:drawable/editbox_background"
+            android:inputType="textShortMessage"
+            android:maxLines="4"/>
+
+        <ImageButton
+            android:id="@+id/btnSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
             android:src="@android:drawable/ic_menu_send"
-            app:tint="?android:attr/textColorSecondary"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@string/nav_chats"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No active conversations"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="?android:attr/textColorSecondary"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Start chatting with traders to buy parts."
-            android:textSize="14sp"
-            android:textColor="?android:attr/textColorSecondary"
-            android:gravity="center"
-            android:layout_marginTop="8dp"/>
+            android:background="?attr/selectableItemBackground"
+            app:tint="?attr/colorPrimary"
+            android:contentDescription="Send"/>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

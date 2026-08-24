@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.usedcarparts.data.AppDatabase
+import com.example.usedcarparts.data.FirebaseRepository
 import com.example.usedcarparts.data.Trader
 import com.example.usedcarparts.data.User
 import com.example.usedcarparts.databinding.ActivityEditProfileBinding
@@ -13,6 +13,7 @@ import kotlinx.coroutines.launch
 
 class EditProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityEditProfileBinding
+    private val firebaseRepository = FirebaseRepository()
     private var currentUser: User? = null
     private var currentTrader: Trader? = null
 
@@ -21,8 +22,8 @@ class EditProfileActivity : AppCompatActivity() {
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val userId = intent.getIntExtra("USER_ID", -1)
-        if (userId == -1) {
+        val userId = intent.getStringExtra("USER_FIREBASE_ID") ?: ""
+        if (userId.isEmpty()) {
             finish()
             return
         }
@@ -33,10 +34,9 @@ class EditProfileActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener { saveProfile() }
     }
 
-    private fun loadData(userId: Int) {
+    private fun loadData(userId: String) {
         lifecycleScope.launch {
-            val db = AppDatabase.getDatabase(this@EditProfileActivity)
-            currentUser = db.userDao().getUserById(userId)
+            currentUser = firebaseRepository.getUserById(userId)
             
             currentUser?.let { user ->
                 binding.etFullName.setText(user.fullName)
@@ -44,7 +44,7 @@ class EditProfileActivity : AppCompatActivity() {
                 
                 if (user.role == "trader") {
                     binding.traderFields.visibility = View.VISIBLE
-                    currentTrader = db.userDao().getTraderByUserId(user.userId)
+                    currentTrader = firebaseRepository.getTraderById(userId)
                     currentTrader?.let { trader ->
                         binding.etBusinessName.setText(trader.businessName)
                         binding.etLicense.setText(trader.businessLicenseNo)
@@ -64,10 +64,9 @@ class EditProfileActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            val db = AppDatabase.getDatabase(this@EditProfileActivity)
             currentUser?.let { user ->
                 val updatedUser = user.copy(fullName = fullName, phone = phone)
-                db.userDao().updateUser(updatedUser)
+                firebaseRepository.updateUser(updatedUser)
                 
                 if (user.role == "trader") {
                     val businessName = binding.etBusinessName.text.toString()
@@ -75,10 +74,10 @@ class EditProfileActivity : AppCompatActivity() {
                     
                     currentTrader?.let { trader ->
                         val updatedTrader = trader.copy(businessName = businessName, businessLicenseNo = license)
-                        db.userDao().updateTrader(updatedTrader)
+                        firebaseRepository.updateTrader(updatedTrader)
                     } ?: run {
                         // In case trader entry was missing
-                        db.userDao().insertTrader(Trader(user.userId, businessName, license))
+                        firebaseRepository.updateTrader(Trader(firebaseId = user.firebaseId, businessName = businessName, businessLicenseNo = license))
                     }
                 }
                 

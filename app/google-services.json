@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "168011856030",
+    "project_id": "usedcarparts-e6db1",
+    "storage_bucket": "usedcarparts-e6db1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168011856030:android:2cb2c938ffd9ddeeda238f",
+        "android_client_info": {
+          "package_name": "com.example.usedcarparts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgr8huKnOjRBSqKSR7qPGFgKBaa7hw85U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

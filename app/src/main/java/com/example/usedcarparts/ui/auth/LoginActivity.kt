@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.usedcarparts.data.AppDatabase
+import com.example.usedcarparts.data.FirebaseRepository
 import com.example.usedcarparts.databinding.ActivityLoginBinding
 import com.example.usedcarparts.ui.main.MainActivity
 import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
+    private val firebaseRepository = FirebaseRepository()
     private var selectedRole = "shopper"
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.tvRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
     }
 
@@ -43,35 +44,24 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        // Hardcoded account bypass
-        if (email == "muntafid.islam@gmail.com" && password == "abcdefg") {
-            try {
-                Toast.makeText(this, "Logged in as Admin ($selectedRole)", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("USER_ID", 1) // Standard ID for the first user
-                intent.putExtra("USER_ROLE", selectedRole)
-                startActivity(intent)
-                finish()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(this, "Error starting MainActivity: ${e.message}", Toast.LENGTH_LONG).show()
-            }
-            return
-        }
-
         lifecycleScope.launch {
-            val db = AppDatabase.getDatabase(this@LoginActivity)
-            val user = db.userDao().getUserByEmail(email)
-
-            if (user != null && user.passwordHash == password && user.role == selectedRole) {
-                Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                intent.putExtra("USER_ID", user.userId)
-                intent.putExtra("USER_ROLE", user.role)
-                startActivity(intent)
-                finish()
+            val result = firebaseRepository.login(email, password)
+            if (result.isSuccess) {
+                val userId = result.getOrNull()!!
+                val user = firebaseRepository.getUserById(userId)
+                if (user != null && user.role == selectedRole) {
+                    Toast.makeText(this@LoginActivity, "Login successful", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                    intent.putExtra("USER_FIREBASE_ID", userId)
+                    intent.putExtra("USER_ROLE", user.role)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    Toast.makeText(this@LoginActivity, "Role mismatch or profile not found", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                Toast.makeText(this@LoginActivity, "Invalid credentials or role", Toast.LENGTH_SHORT).show()
+                val error = result.exceptionOrNull()?.message ?: "Invalid credentials"
+                Toast.makeText(this@LoginActivity, "Login failed: $error", Toast.LENGTH_LONG).show()
             }
         }
     }

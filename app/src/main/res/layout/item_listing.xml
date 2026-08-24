@@ -56,16 +56,33 @@
                 android:textColor="?attr/colorPrimary"
                 android:layout_marginTop="8dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAddToCart"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/add_to_cart"
-                android:padding="0dp"
-                android:minHeight="0dp"
-                android:layout_marginTop="4dp"
-                android:textAllCaps="false"/>
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAddToCart"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_to_cart"
+                    android:padding="0dp"
+                    android:minHeight="0dp"
+                    android:layout_marginTop="4dp"
+                    android:textAllCaps="false"/>
+
+                <ImageButton
+                    android:id="@+id/btnDelete"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:background="?attr/selectableItemBackground"
+                    android:visibility="gone"
+                    android:layout_marginStart="8dp"
+                    app:tint="#FF0000"
+                    android:contentDescription="Delete Listing"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

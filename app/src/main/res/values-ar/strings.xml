@@ -36,6 +36,7 @@
     <string name="nav_home">الرئيسية</string>
     <string name="nav_search">البحث</string>
     <string name="nav_sell">بيع</string>
+    <string name="nav_cart">سلة التسوق</string>
     <string name="nav_chats">المحادثات</string>
     <string name="nav_profile">الملف الشخصي</string>
     <string name="language_change_note">يمكن تغيير اللغة في أي وقت من الملف الشخصي</string>

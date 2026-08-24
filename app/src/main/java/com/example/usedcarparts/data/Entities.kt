@@ -1,46 +1,84 @@
 package com.example.usedcarparts.data
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "users")
 data class User(
-    @PrimaryKey(autoGenerate = true) val userId: Int = 0,
-    val fullName: String,
-    val email: String,
-    val phone: String,
-    val passwordHash: String,
-    val role: String, // "shopper", "trader"
+    val userId: Int = 0, // Kept for logic compatibility
+    val firebaseId: String = "",
+    val fullName: String = "",
+    val email: String = "",
+    val phone: String = "",
+    val passwordHash: String = "",
+    val role: String = "shopper", // "shopper", "trader"
     val preferredLanguage: String = "en"
 )
 
-@Entity(tableName = "traders")
 data class Trader(
-    @PrimaryKey val userId: Int,
-    val businessName: String,
-    val businessLicenseNo: String,
+    val userId: Int = 0,
+    val firebaseId: String = "",
+    val businessName: String = "",
+    val businessLicenseNo: String = "",
     val isVerified: Boolean = false
 )
 
-@Entity(tableName = "categories")
 data class Category(
-    @PrimaryKey val categoryId: Int,
-    val nameEn: String,
-    val nameAr: String,
+    val categoryId: Int = 0,
+    val nameEn: String = "",
+    val nameAr: String = "",
     val iconUrl: String? = null
 )
 
-@Entity(tableName = "listings")
 data class Listing(
-    @PrimaryKey(autoGenerate = true) val listingId: Int = 0,
-    val traderId: Int,
-    val categoryId: Int,
-    val title: String,
-    val description: String,
-    val price: Double,
-    val condition: String, // "new", "used"
-    val carMakeModelYear: String,
+    val listingId: Int = 0,
+    val firebaseId: String = "",
+    val traderId: Int = 0,
+    val traderFirebaseId: String = "",
+    val categoryId: Int = 0,
+    val title: String = "",
+    val description: String = "",
+    val price: Double = 0.0,
+    val condition: String = "Used", // "New", "Used"
+    val carMakeModelYear: String = "",
     val imageUrl: String? = null,
+    val imageUrls: List<String> = emptyList(),
     val status: String = "active",
     val createdAt: Long = System.currentTimeMillis()
+)
+
+data class Order(
+    val orderId: Int = 0,
+    val firebaseId: String = "",
+    val listingId: Int = 0,
+    val listingFirebaseId: String = "",
+    val buyerId: Int = 0,
+    val buyerFirebaseId: String = "",
+    val sellerId: Int = 0,
+    val sellerFirebaseId: String = "",
+    val quantity: Int = 1,
+    val totalAmount: Double = 0.0,
+    val status: String = "pending", // "pending", "confirmed", "shipped", "completed"
+    val orderDate: Long = System.currentTimeMillis()
+)
+
+data class Message(
+    val messageId: Int = 0,
+    val firebaseId: String = "",
+    val senderId: Int = 0,
+    val senderFirebaseId: String = "",
+    val receiverId: Int = 0,
+    val receiverFirebaseId: String = "",
+    val listingId: Int? = null,
+    val listingFirebaseId: String? = null,
+    val content: String = "",
+    val sentAt: Long = System.currentTimeMillis(),
+    val isRead: Boolean = false
+)
+
+data class Address(
+    val addressId: Int = 0,
+    val firebaseId: String = "",
+    val userId: Int = 0,
+    val userFirebaseId: String = "",
+    val addressLine: String = "",
+    val city: String = "",
+    val country: String = "",
+    val isDefault: Boolean = false
 )

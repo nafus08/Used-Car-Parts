@@ -66,14 +66,10 @@
                 android:layout_marginBottom="24dp">
 
                 <LinearLayout
+                    android:id="@+id/photoContainer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <!-- Photo slots placeholders -->
-                    <View android:layout_width="80dp" android:layout_height="80dp" android:layout_marginEnd="8dp" android:background="#EEEEEE"/>
-                    <View android:layout_width="80dp" android:layout_height="80dp" android:layout_marginEnd="8dp" android:background="#EEEEEE"/>
-                    <View android:layout_width="80dp" android:layout_height="80dp" android:layout_marginEnd="8dp" android:background="#EEEEEE"/>
 
                     <FrameLayout
                         android:id="@+id/btnAddPhoto"
@@ -122,11 +118,12 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:hint="@string/category"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
                         android:id="@+id/etCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -135,11 +132,12 @@
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:hint="@string/condition"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                    <AutoCompleteTextView
                         android:id="@+id/etCondition"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

@@ -36,6 +36,7 @@
     <string name="nav_home">Home</string>
     <string name="nav_search">Search</string>
     <string name="nav_sell">Sell</string>
+    <string name="nav_cart">Cart</string>
     <string name="nav_chats">Chats</string>
     <string name="nav_profile">Profile</string>
     <string name="language_change_note">Language can be changed anytime in Profile</string>
